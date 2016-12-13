@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Unknown</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!--Menu Items-->
+    <string name="nav_deals">Deals</string>
+    <string name="nav_category1">Category 1</string>
+    <string name="nav_category2">Category 2</string>
+    <string name="nav_category3">Category 3</string>
+    <string name="nav_category4">Category 4</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_deals_fragment">Hello from Deals fragment</string>
+    <string name="hello_category1_fragment">Hello from category1 fragment</string>
+    <string name="hello_category2_fragment">Hello from category2 fragment</string>
+    <string name="hello_category3_fragment">Hello from category3 fragment</string>
+    <string name="hello_category4_fragment">Hello from category4 fragment</string>
+
+
+
+</resources>
