@@ -26,6 +26,15 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    //junit
+    testCompile 'junit:junit:4.12'
+
+    //support libraries
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.android.support:support-compat:25.0.1\n' +
+            'v4 core-utils library'
+
     //dagger
     apt 'com.google.dagger:dagger-compiler:2.2'
     compile 'com.google.dagger:dagger:2.2'
@@ -34,12 +43,9 @@ dependencies {
 
     //Butterknife
     apply plugin: 'com.neenbedankt.android-apt'
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support:design:25.0.1'
     compile 'com.jakewharton:butterknife:8.0.1'
-    compile 'com.android.support:support-compat:25.0.1\n' +
-            'v4 core-utils library'
-    testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
 
+    //Recycler View
+    compile "com.android.support:recyclerview-v7:25.0.1"
 }

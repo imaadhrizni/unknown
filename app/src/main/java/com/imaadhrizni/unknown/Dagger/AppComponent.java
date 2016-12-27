@@ -1,5 +1,6 @@
 package com.imaadhrizni.unknown.Dagger;
 
+import com.imaadhrizni.unknown.Fragments.Category1Fragment;
 import com.imaadhrizni.unknown.MainActivity;
 import com.imaadhrizni.unknown.ShoppingCart.ProductListContract;
 import com.imaadhrizni.unknown.ShoppingCart.ProductPresenter;
@@ -23,5 +24,6 @@ import dagger.Component;
 public interface AppComponent {
     void inject(ProductPresenter presenter);
     void inject(MainActivity activity);
+    void inject(Category1Fragment category1Fragment);
     void inject(ProductListContract presenter);
 }

@@ -30,7 +30,7 @@ public class ProductPresenter implements ProductListContract.Actions {
     public void loadProducts() {
         List<Product> availableProducts = mRepository.getAllProducts();
         if (availableProducts != null && availableProducts.size() > 0) {
-            mView.hideEmptyText();
+            //mView.hideEmptyText();
             mView.showProducts(availableProducts);
 
         } else {

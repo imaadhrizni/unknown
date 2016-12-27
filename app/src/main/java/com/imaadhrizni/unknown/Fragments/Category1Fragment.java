@@ -3,15 +3,19 @@ package com.imaadhrizni.unknown.Fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.imaadhrizni.unknown.Model.Product;
+import com.imaadhrizni.unknown.Adapters.RecyclerViewAdapter;
 import com.imaadhrizni.unknown.R;
 import com.imaadhrizni.unknown.ShoppingCart.ProductListContract;
 import com.imaadhrizni.unknown.ShoppingCart.ProductPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -36,6 +40,13 @@ public class Category1Fragment extends Fragment implements ProductListContract.V
     private OnFragmentInteractionListener mListener;
     private View mRootView;
     private ProductListContract.Actions mPresenter;
+
+    ///////
+    private RecyclerView mRecyclerView;
+    private RecyclerViewAdapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    //////
+
 
     public Category1Fragment() {
         // Required empty public constructor
@@ -78,9 +89,10 @@ public class Category1Fragment extends Fragment implements ProductListContract.V
         //Instantiate the Presenter
         mPresenter = new ProductPresenter(this);
 
-        //Initialize Adapter and Recyclyer View here
-        //With an empty list of products
-        mPresenter.loadProducts();
+        initRecyclerView();
+
+        // specify an adapter (see also next example)
+        showProducts(new ArrayList<Product>());
 
         return mRootView;
     }
@@ -90,6 +102,14 @@ public class Category1Fragment extends Fragment implements ProductListContract.V
         if (mListener != null) {
             mListener.onFragmentInteraction("CATEGORY1", data);
         }
+    }
+
+    private void initRecyclerView() {
+        mAdapter = new RecyclerViewAdapter(new ArrayList<Product>());
+
+        mRecyclerView = (RecyclerView) mRootView.findViewById(R.id.my_recycler_view);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -109,11 +129,18 @@ public class Category1Fragment extends Fragment implements ProductListContract.V
         mListener = null;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        //Ask the Presenter to load the list of products
+        mPresenter.loadProducts();
+    }
 
     @Override
     public void showProducts(List<Product> products) {
         //The Presenter returns the list of products here
         //call the replace data method in the Adapter
+        mAdapter.replaceData((ArrayList<Product>) products);
     }
 
     @Override
